@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UsuarioControlador {
     UsuarioRepositorio repositorio;
-
+    //Constructor
     public UsuarioControlador(UsuarioRepositorio repositorio) {
         this.repositorio = repositorio;
     }
@@ -46,7 +47,17 @@ public class UsuarioControlador {
     }
 
     //Método para buscar un usuario por id
-    //
+    @GetMapping("/usuario/{id}")
+    public Usuario findById(@PathVariable Long id){
+           Optional<Usuario> usuariobuscado;
+        Usuario user = new Usuario();
+           if ((id != null) && (repositorio.existsById(id))) {
+               usuariobuscado = repositorio.findById(id);
+               if (usuariobuscado.isPresent())
+                   user = usuariobuscado.get();
+           }
+           return  user;
+       }
     //
     //
     //
