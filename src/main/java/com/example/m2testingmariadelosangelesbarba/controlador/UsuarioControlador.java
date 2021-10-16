@@ -58,9 +58,6 @@ public class UsuarioControlador {
            }
            return  user;
        }
-    //
-    //
-    //
 
     //Método para modificar un usuario
     //El Id es distinto de null porque lo estamos actualizando
@@ -78,6 +75,10 @@ public class UsuarioControlador {
     }
 
     //Método para borrar todos los usuarios
-    //Método para contar el númeor de usuarios
+    @DeleteMapping("/borrar")
+    public void deleteAll() {
+        repositorio.deleteAll();
+    }
+    //Método para contar el númeoro de usuarios
     //Método para comprobar que existe un usuario por id
 }
