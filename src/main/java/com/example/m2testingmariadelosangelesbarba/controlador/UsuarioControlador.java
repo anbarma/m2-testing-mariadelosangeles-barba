@@ -66,8 +66,8 @@ public class UsuarioControlador {
         if ((usuario.getId() != null) && repositorio.existsById(usuario.getId()))
         repositorio.save(usuario);
     }
+
     //Método para borrar un usuario
-    //No funciona bien con id que no existen
     @DeleteMapping("/usuarios/{id}")
     public void deleteById(@PathVariable Long id){
         if ((id != null) && (repositorio.existsById(id)))
@@ -79,6 +79,13 @@ public class UsuarioControlador {
     public void deleteAll() {
         repositorio.deleteAll();
     }
-    //Método para contar el númeoro de usuarios
+
+    //Método para contar el número de usuarios
+    @GetMapping("/contador")
+    public Long count(){
+        Optional<Usuario> usuariobuscado;
+        return  repositorio.count();
+    }
+
     //Método para comprobar que existe un usuario por id
 }
