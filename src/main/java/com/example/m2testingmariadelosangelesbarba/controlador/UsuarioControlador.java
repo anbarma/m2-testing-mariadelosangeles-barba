@@ -88,4 +88,13 @@ public class UsuarioControlador {
     }
 
     //Método para comprobar que existe un usuario por id
+    @GetMapping("/existe/{id}")
+    public String exist(@PathVariable Long id) {
+        String cadena;
+        if (repositorio.existsById(id))
+            cadena = "El usuario con la id consultada si existe.";
+        else
+            cadena = "El usuario con la id consultada NO existe.";
+        return cadena;
+    }
 }
