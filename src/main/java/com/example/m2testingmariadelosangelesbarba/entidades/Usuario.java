@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 @Entity
 public class Usuario {
@@ -97,4 +100,5 @@ public class Usuario {
                 ", autorizado=" + autorizado +
                 '}';
     }
+
 }
